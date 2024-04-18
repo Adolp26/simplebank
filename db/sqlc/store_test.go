@@ -49,7 +49,7 @@ func TestTransfer(t *testing.T) {
 		require.NotZero(t, transfer.ID)
 		require.NotZero(t, transfer.CreatedAt)
 
-		_, err = store.GetAccounts(context.Background(), account1.ID)
+		_, err = store.GetAccount(context.Background(), account1.ID)
 		require.NoError(t, err)
 
 		//check entries
@@ -61,7 +61,7 @@ func TestTransfer(t *testing.T) {
 		require.NotZero(t, fromEntry.ID)
 		require.NotZero(t, fromEntry.CreatedAt)
 
-		_, err = store.GetEntries(context.Background(), account1.ID)
+		_, err = store.GetEntry(context.Background(), account1.ID)
 		require.NoError(t, err)
 
 		toEntry := result.ToEntry
@@ -71,7 +71,7 @@ func TestTransfer(t *testing.T) {
 		require.NotZero(t, toEntry.ID)
 		require.NotZero(t, toEntry.CreatedAt)
 
-		_, err = store.GetEntries(context.Background(), account2.ID)
+		_, err = store.GetEntry(context.Background(), account2.ID)
 		require.NoError(t, err)
 
 		//check accounts balance
